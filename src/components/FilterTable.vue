@@ -6,15 +6,15 @@
     <div class="body--filter">
       <div>
         <label>Номер накладной:</label>
-        <input type="text" id="mike" value="Майк" placeholder="Введите фрагмент" v-model="checkedNames">
+        <input type="text" id="mike" value="Майк" placeholder="Введите фрагмент" @keyup.enter="search()" v-model="checkedNames">
       </div>
       <div>
         <label for="mike">Тип заказа:</label>
         <select v-model="selected">
           <option disabled value="Выберете из списка">Выберете из списка</option>
-          <option>А</option>
-          <option>Б</option>
-          <option>В</option>
+          <option :value="'Pickup'">Самовывоз</option>
+          <option :value="'Delivery'">Курьерская доставка</option>
+          <option :value="'Pick-point'">Доставка в пункт выдачи</option>
         </select>
       </div>
     </div>
@@ -22,12 +22,30 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import {Component, Vue, Watch} from "vue-property-decorator";
 
 @Component
 
 export default class FilterTable extends Vue {
   selected = '';
+  checkedNames = '';
+
+  @Watch('checkedNames')
+  setSearch(): void {
+    if(this.checkedNames === '') {
+      this.$store.commit('getSearch', '');
+    }
+  }
+
+  @Watch('selected')
+  getSeach(): void {
+    this.$store.commit('setParamsSearch', this.selected);
+  }
+
+  search(): void {
+    this.$store.commit('getSearch', this.checkedNames)
+  }
+
 }
 </script>
 

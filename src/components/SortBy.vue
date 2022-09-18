@@ -2,8 +2,11 @@
   <div class="sort-by">
     <div class="sort-by--filter">
       <div class="sort-by--select">
-        <select>
-          <option>Сортитровка</option>
+        <select v-model="sort">
+          <option :value="true">Номер накладной От
+          </option>
+          <option :value="false">Номер накладной До
+          </option>
         </select>
       </div>
       <div class="sort-by--table" :class="{'prime' : $route.name === 'table'}" @click="$router.push({ name: 'table'})">
@@ -49,11 +52,19 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import {Component, Vue, Watch} from "vue-property-decorator";
 
 @Component
 
 export default class SortBy extends Vue {
+
+  sort = false;
+
+  @Watch('sort')
+  chekSort(): void {
+    this.$store.commit('getSort', this.sort)
+  }
+
   created():void {
     this.$router.push({
       name: 'table',
@@ -76,6 +87,7 @@ select {
 }
 
 .sort-by--filter {
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
 }

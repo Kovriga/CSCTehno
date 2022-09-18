@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Table from "@/components/Table.vue";
+import Table from "@/components/TableCom.vue";
 import ItemBlock from "@/components/ItemBlock.vue";
 
 Vue.use(VueRouter)

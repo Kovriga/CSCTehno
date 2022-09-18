@@ -30,6 +30,18 @@ export default class App extends Vue {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+h3 {
+  margin: 0;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: #2B2839;
+}
+
 #app {
   height: 100vh;
   background: #E5E5E5;
