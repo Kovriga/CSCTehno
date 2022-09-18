@@ -2,10 +2,10 @@
   <div id="app">
     <header-site></header-site>
     <div class="center-component-mesh">
-      <div class="filter">
-        <filter-table></filter-table>
+      <filter-table></filter-table>
+      <div>
+        <sort-by></sort-by>
       </div>
-      <div class="table-data"></div>
     </div>
   </div>
 </template>
@@ -14,9 +14,11 @@
 import {Component, Vue} from "vue-property-decorator";
 import HeaderSite from "@/components/HeaderSite.vue";
 import FilterTable from "@/components/FilterTable.vue";
+import SortBy from "@/components/SortBy.vue";
 
 @Component({
   components: {
+    SortBy,
     FilterTable,
     HeaderSite
   }
@@ -34,13 +36,10 @@ export default class App extends Vue {
 }
 
 .center-component-mesh {
+  margin-top: 32px;
+  justify-content: center;
   display: flex;
 }
-
-.filter, .table-data {
-
-}
-
 h2 {
   margin: 0;
 }
