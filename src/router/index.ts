@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import Table from "@/components/Table.vue";
+import ItemBlock from "@/components/ItemBlock.vue";
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
-  /*{
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },*/
+  {
+    path: '/table',
+    name: 'table',
+    component: Table,
+  },
+  {
+    path: '/item-block',
+    name: 'itemBlock',
+    component: ItemBlock,
+  }
 ]
 
 const router = new VueRouter({

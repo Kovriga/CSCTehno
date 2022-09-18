@@ -40,6 +40,10 @@ export default class App extends Vue {
   justify-content: center;
   display: flex;
 }
+
+.center-component-mesh > div:last-child {
+  width: 65%;
+}
 h2 {
   margin: 0;
 }
